@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import {Container, Header, Main, Menu, MenuItem, Submenu, Row, Col, Card, Table, Button} from 'element-ui';
 import router from './router'
+import store from './store'//引入store
 
 import App from './App.vue'
 
@@ -20,5 +21,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
