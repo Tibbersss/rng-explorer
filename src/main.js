@@ -2,17 +2,9 @@ import Vue from 'vue'
 import {Container, Header, Main, Menu, MenuItem, Submenu, Row, Col, Card, Table, Button, TableColumn, Tag, Icon, Loading, Input} from 'element-ui';
 import router from './router'
 import store from './store'//引入store
+import i18n from './i18n'
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
-
-import VueI18n from 'vue-i18n'
-Vue.use(VueI18n)
-const i18n = new VueI18n({
-  locale: 'en',
-  messages: {
-    en: {},
-  },
-})
 
 import VueSocketIO from 'vue-socket.io'
 
