@@ -7,10 +7,12 @@ const i18n = new VueI18n({
   locale: locale,
   messages: {
     zh: {
-      index: '首页'
+      index: '首页',
+      addressMap: '地址列表',
     },
     en: {
-      index: 'index'
+      index: 'index',
+      addressMap: 'address map'
     },
   },
 })

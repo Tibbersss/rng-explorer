@@ -12,8 +12,8 @@
                 active-text-color="#fff"
                 style="width: 100%"
             >
-              <el-menu-item class="transparent_bg" index="1">首页</el-menu-item>
-              <el-menu-item class="transparent_bg" index="2">地址列表</el-menu-item>
+              <el-menu-item class="transparent_bg" index="1">{{ $t('index') }}</el-menu-item>
+              <el-menu-item class="transparent_bg" index="2">{{ $t('addressMap') }}</el-menu-item>
             </el-menu>
 
             <el-menu
