@@ -4,7 +4,7 @@
       <el-header>
         <el-row>
           <el-col :span="16" :offset="4">
-            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
               <el-menu-item index="1">首页</el-menu-item>
               <el-menu-item index="2">地址列表</el-menu-item>
               <el-submenu index="3" style="float: right">
@@ -30,7 +30,12 @@
 <script>
   export default {
     name: 'app',
-    components: {}
+    components: {},
+    data () {
+      return {
+        activeIndex: '1'
+      }
+    }
   }
 </script>
 
