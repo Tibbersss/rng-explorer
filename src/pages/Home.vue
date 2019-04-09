@@ -1,63 +1,78 @@
 <template>
   <div class="home">
-    <div class="topNav">
-      <!-- logo -->
-      <div class="logo">
-        <!-- <a href="http://explorer.trustnote.org"></a> -->
-        <a href="http://explorer2-alpha.trustnote.org:8000"></a>
-      </div>
-      <!-- 挖矿状态 -->
-      <div style="display: block;" class="status chineseWeb">
-        <div class="statusL">
-          已挖出 <span class="issuedCoin">386634</span> <span class="fontspace">RNG</span>
-          <div class="line"></div>
-        </div>
-        <div class="statusR">
-          共发行 <span class="nonIssuedCoin">500386620</span> <span class="fontspace">RNG</span>
-        </div>
-        <div class="cb"></div>
 
-        <div class="statusL">
-          当前抵押率： <span class="depositRatio">24</span> <span class="fontspace">%</span>
-          <div class="line"></div>
+    <el-row>
+      <div class="topNav">
+        <!-- logo -->
+        <div class="logo">
+          <!-- <a href="http://explorer.trustnote.org"></a> -->
+          <a href="http://explorer2-alpha.trustnote.org:8000"></a>
         </div>
-        <div class="statusR">
-          年化通胀率： <span class="inflationRatio">17</span> <span class="fontspace">%</span>
-        </div>
-        <div class="cb"></div>
-      </div>
+        <!-- 挖矿状态 -->
+        <div style="display: block;" class="status chineseWeb">
+          <div class="statusL">
+            已挖出 <span class="issuedCoin">386634</span> <span class="fontspace">RNG</span>
+            <div class="line"></div>
+          </div>
+          <div class="statusR">
+            共发行 <span class="nonIssuedCoin">500386620</span> <span class="fontspace">RNG</span>
+          </div>
+          <div class="cb"></div>
 
-      <div class="status englishWeb" style="display: none;">
-        <div class="statusL">
-          <span class="issuedCoin">386634</span>
-          new RNGs are Mined
-          <div class="line"></div>
+          <div class="statusL">
+            当前抵押率： <span class="depositRatio">24</span> <span class="fontspace">%</span>
+            <div class="line"></div>
+          </div>
+          <div class="statusR">
+            年化通胀率： <span class="inflationRatio">17</span> <span class="fontspace">%</span>
+          </div>
+          <div class="cb"></div>
         </div>
-        <div class="statusR">
-          <span class="nonIssuedCoin">500386620</span>
-          RNGs to be Mined
-        </div>
-        <div class="cb"></div>
 
-        <div class="statusL">
-          depositRatio:
-          <span class="depositRatio">24</span> %
-          <div class="line"></div>
+        <div class="status englishWeb" style="display: none;">
+          <div class="statusL">
+            <span class="issuedCoin">386634</span>
+            new RNGs are Mined
+            <div class="line"></div>
+          </div>
+          <div class="statusR">
+            <span class="nonIssuedCoin">500386620</span>
+            RNGs to be Mined
+          </div>
+          <div class="cb"></div>
+
+          <div class="statusL">
+            depositRatio:
+            <span class="depositRatio">24</span> %
+            <div class="line"></div>
+          </div>
+          <div class="statusR">
+            inflationRatio:
+            <span class="inflationRatio">17</span> %
+          </div>
+          <div class="cb"></div>
         </div>
-        <div class="statusR">
-          inflationRatio:
-          <span class="inflationRatio">17</span> %
+        <!-- 查询地址 -->
+        <div class="search">
+          <form method="post">
+            <input type="text" id="inputSearch" placeholder="输入单元地址或钱包地址">
+            <input type="submit" value="" id="submitSearch">
+          </form>
         </div>
-        <div class="cb"></div>
       </div>
-      <!-- 查询地址 -->
-      <div class="search">
-        <form method="post">
-          <input type="text" id="inputSearch" placeholder="输入单元地址或钱包地址">
-          <input type="submit" value="" id="submitSearch">
-        </form>
-      </div>
-    </div>
+    </el-row>
+    <br>
+    <el-row>
+      <el-card>
+        <div slot="header">
+          <span>单元列表</span>
+          <el-button style="float: right; padding: 3px 0" type="text">更多</el-button>
+        </div>
+        <div v-for="o in 4" :key="o" class="text item">
+          {{'列表内容 ' + o }}
+        </div>
+      </el-card>
+    </el-row>
   </div>
 </template>
 
