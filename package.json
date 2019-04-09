@@ -13,6 +13,7 @@
     "element-ui": "^2.7.2",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "moment-timezone": "^0.5.23",
     "vue": "^2.6.6",
     "vue-moment": "^4.0.0",
     "vue-router": "^3.0.3",
