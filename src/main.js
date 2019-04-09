@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {Container, Header, Main, Menu, MenuItem, Submenu, Row, Col, Card, Table, Button, TableColumn, Tag, Icon} from 'element-ui';
+import {Container, Header, Main, Menu, MenuItem, Submenu, Row, Col, Card, Table, Button, TableColumn, Tag, Icon, Loading,} from 'element-ui';
 import router from './router'
 import store from './store'//引入store
 import VueMoment from 'vue-moment'
@@ -25,6 +25,9 @@ Vue.use(TableColumn)
 Vue.use(Button)
 Vue.use(Tag)
 Vue.use(Icon)
+Vue.use(Loading.directive);
+
+Vue.prototype.$loading = Loading.service;
 
 moment.locale('en', {
   longDateFormat: {
