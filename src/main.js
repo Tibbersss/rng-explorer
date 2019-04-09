@@ -5,6 +5,8 @@ import store from './store'//引入store
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
 
+import VueI18n from 'vue-i18n'
+Vue.use(VueI18n)
 
 import VueSocketIO from 'vue-socket.io'
 
