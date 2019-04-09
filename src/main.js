@@ -22,6 +22,8 @@ Vue.use(TableColumn)
 Vue.use(Button)
 Vue.use(Tag)
 
+Vue.use(require('vue-moment'))
+
 Vue.use(new VueSocketIO({
   debug: false,
   connection: 'ws://127.0.0.1:7001',
