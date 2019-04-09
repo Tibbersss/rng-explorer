@@ -4,7 +4,14 @@
       <el-header>
         <el-row>
           <el-col :span="16" :offset="4">
-            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+            <el-menu
+                :default-active="activeIndex"
+                mode="horizontal"
+                background-color="transparent"
+                text-color="#fff"
+                active-text-color="#000"
+                style="background-color: transparent!important;"
+            >
               <el-menu-item index="1">首页</el-menu-item>
               <el-menu-item index="2">地址列表</el-menu-item>
               <el-submenu index="3" style="float: right">
@@ -17,11 +24,7 @@
         </el-row>
       </el-header>
       <el-main>
-        <el-row>
-          <el-col :span="16" :offset="4">
-            <router-view/>
-          </el-col>
-        </el-row>
+        <router-view/>
       </el-main>
     </el-container>
   </div>
@@ -31,7 +34,7 @@
   export default {
     name: 'app',
     components: {},
-    data () {
+    data() {
       return {
         activeIndex: '1'
       }
@@ -39,7 +42,15 @@
   }
 </script>
 
-<style>
+<style lang="less">
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
   #app {
+    header {
+      z-index: 100;
+    }
   }
 </style>
