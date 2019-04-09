@@ -7,6 +7,12 @@ import moment from 'moment-timezone'
 
 import VueI18n from 'vue-i18n'
 Vue.use(VueI18n)
+const i18n = new VueI18n({
+  locale: 'en',
+  messages: {
+    en: {},
+  },
+})
 
 import VueSocketIO from 'vue-socket.io'
 
@@ -57,5 +63,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App),
 }).$mount('#app')
