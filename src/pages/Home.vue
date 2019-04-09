@@ -15,7 +15,6 @@
             共发行 <span class="big">{{rng.total}}</span> RNG
           </el-col>
         </el-row>
-        <el-input v-model="input" placeholder="输入单元或地址查询" @keyup.enter.native="submit"/>
 
         <el-row class="data">
           <el-col :span="12">
@@ -25,7 +24,9 @@
             年化通胀率 <span class="big">{{rng.inflation}}</span> %
           </el-col>
         </el-row>
-        <el-row>
+        <el-input v-model="input" placeholder="输入单元或地址查询" @keyup.enter.native="submit"/>
+
+        <el-row style="margin-top: 28px">
           <el-card>
             <div slot="header">
               <span><i :class="unitsLoading?'el-icon-loading':'el-icon-document'"></i>单元列表</span>
@@ -120,7 +121,7 @@
 
     .body-bg {
       background: url(../assets/background.png) no-repeat center center;
-      height: 560px;
+      height: 380px;
       width: 100%;
       position: absolute;
       z-index: 0;
@@ -134,7 +135,7 @@
       background: url(../assets/logo.png) no-repeat center center;
     }
     .data {
-      margin: 20px 0;
+      margin: 10px 0;
       color: #fff;
       font-size: 18px;
       div:first-child {
