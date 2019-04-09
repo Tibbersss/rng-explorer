@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {Container, Header, Main, Menu, MenuItem, Submenu, Row, Col, Card, Table, Button} from 'element-ui';
+import {Container, Header, Main, Menu, MenuItem, Submenu, Row, Col, Card, Table, Button, TableColumn} from 'element-ui';
 import router from './router'
 import store from './store'//引入store
 
@@ -18,6 +18,7 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(Card)
 Vue.use(Table)
+Vue.use(TableColumn)
 Vue.use(Button)
 
 Vue.use(new VueSocketIO({
