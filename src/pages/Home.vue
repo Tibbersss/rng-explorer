@@ -62,15 +62,41 @@
       </div>
     </el-row>
     <br>
-    <el-row>
+    <el-row class="home-units">
       <el-card>
         <div slot="header">
-          <span>单元列表</span>
+          <span><i :class="unitsLoading?'el-icon-loading':'el-icon-document'"></i>单元列表</span>
           <el-button style="float: right; padding: 3px 0" type="text">更多</el-button>
         </div>
-        <div v-for="o in 4" :key="o" class="text item">
-          {{'列表内容 ' + o }}
-        </div>
+        <el-table
+            max-height="300"
+            width="100%"
+            :data="units"
+            style="width: 100%">
+          <el-table-column
+              prop="unit"
+              label="单元">
+          </el-table-column>
+          <el-table-column
+              label="日期">
+            <template slot-scope="scope">
+              {{$moment.utc(scope.row.creation_date).local().format('L')}}
+            </template>
+          </el-table-column>
+          <el-table-column
+              prop="main_chain_index"
+              label="主链高度">
+          </el-table-column>
+          <el-table-column
+              label="稳定"
+              width="100">
+            <template slot-scope="scope">
+              <el-tag
+                  :type="scope.row.is_stable ? 'success' : 'danger'"
+                  disable-transitions>{{scope.row.is_stable ? '是' : '否'}}</el-tag>
+            </template>
+          </el-table-column>
+        </el-table>
       </el-card>
     </el-row>
   </div>
@@ -79,7 +105,37 @@
 <script>
   export default {
     name: 'Home',
-    props: {}
+    props: {},
+    mounted () {
+      setInterval(() => {
+        this.$socket.emit('getLatestUnits')
+      }, 3000)
+      // this.$store.dispatch('START_UPDATE_LATEST_UNITS')
+    },
+    data () {
+      return {
+        unitsLoading: false
+      }
+    },
+    methods: {
+      refreshUnitsIcon () {
+        this.unitsLoading = true
+        setTimeout(() => {
+          this.unitsLoading = false
+        }, 2000)
+      }
+    },
+    computed: {
+      units () {
+        return this.$store.state.units
+      }
+    },
+    watch: {
+      // 如果 `question` 发生改变，这个函数就会运行
+      units: function () {
+        this.refreshUnitsIcon()
+      }
+    }
   }
 </script>
 
