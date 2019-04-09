@@ -17,13 +17,13 @@
             </el-menu>
 
             <el-menu
+                @select="changeLanguage"
                 class="submenu-language transparent_bg"
                 mode="horizontal"
             >
               <el-submenu index="3" style="float: right">
-                <template cla="abc" slot="title">cn</template>
-                <el-menu-item index="3-1">cn</el-menu-item>
-                <el-menu-item index="3-2">en</el-menu-item>
+                <template cla="abc" slot="title">{{languageMap[language]}}</template>
+                <el-menu-item v-for="(i, k) in languageMap" :index="k">{{i}}</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-col>
@@ -42,7 +42,21 @@
     components: {},
     data () {
       return {
-        activeIndex: '1'
+        activeIndex: '1',
+        languageMap: {
+          en: 'english',
+          zh: '中文',
+        }
+      }
+    },
+    methods: {
+      changeLanguage (key) {
+        this.$i18n.locale = key
+      }
+    },
+    computed: {
+      language () {
+        return this.$i18n.locale
       }
     }
   }
