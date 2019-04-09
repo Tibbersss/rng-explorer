@@ -2,6 +2,9 @@ import Vue from 'vue'
 import {Container, Header, Main, Menu, MenuItem, Submenu, Row, Col, Card, Table, Button, TableColumn, Tag} from 'element-ui';
 import router from './router'
 import store from './store'//引入store
+import VueMoment from 'vue-moment'
+import moment from 'moment-timezone'
+
 
 import VueSocketIO from 'vue-socket.io'
 
@@ -22,7 +25,15 @@ Vue.use(TableColumn)
 Vue.use(Button)
 Vue.use(Tag)
 
-Vue.use(require('vue-moment'))
+moment.locale('en', {
+  longDateFormat: {
+    L: "YYYY-MM-DD HH:mm:ss",
+  }
+})
+
+Vue.use(VueMoment, {
+  moment,
+})
 
 Vue.use(new VueSocketIO({
   debug: false,
