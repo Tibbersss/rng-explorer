@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>
+      <el-header class="header">
         <el-row>
           <el-col :span="16" :offset="4">
             <el-menu
@@ -9,13 +9,19 @@
                 mode="horizontal"
                 background-color="transparent"
                 text-color="#fff"
-                active-text-color="#000"
-                style="background-color: transparent!important;"
+                active-text-color="#fff"
+                style="width: 100%"
             >
-              <el-menu-item index="1">首页</el-menu-item>
-              <el-menu-item index="2">地址列表</el-menu-item>
+              <el-menu-item class="transparent_bg" index="1">首页</el-menu-item>
+              <el-menu-item class="transparent_bg" index="2">地址列表</el-menu-item>
+            </el-menu>
+
+            <el-menu
+                class="submenu-language transparent_bg"
+                mode="horizontal"
+            >
               <el-submenu index="3" style="float: right">
-                <template slot="title">cn</template>
+                <template cla="abc" slot="title">cn</template>
                 <el-menu-item index="3-1">cn</el-menu-item>
                 <el-menu-item index="3-2">en</el-menu-item>
               </el-submenu>
@@ -34,7 +40,7 @@
   export default {
     name: 'app',
     components: {},
-    data() {
+    data () {
       return {
         activeIndex: '1'
       }
@@ -48,9 +54,33 @@
     padding: 0;
   }
 
+  .transparent_bg {
+    background: transparent !important;
+  }
+
   #app {
-    header {
+    .header {
       z-index: 100;
+      .el-col {
+        display: flex;
+        .el-menu.el-menu--horizontal {
+          border-bottom: none;
+        }
+        .submenu-language {
+          .el-submenu__title {
+            background: transparent !important;
+            color: #fff;
+            i {
+              color: #fff;
+            }
+          }
+        }
+      }
     }
+    /*.submenu-language {*/
+    /*.el-submenu__title {*/
+    /*background: transparent !important;*/
+    /*}*/
+    /*}*/
   }
 </style>
