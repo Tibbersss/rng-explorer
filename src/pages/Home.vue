@@ -126,7 +126,7 @@
       position: absolute;
       z-index: 0;
       left: 0;
-      top: -30px;
+      top: 60px;
       transition: background .6s ease-in-out;
     }
     .logo {

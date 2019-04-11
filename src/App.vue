@@ -75,6 +75,7 @@
   #app {
     .header {
       z-index: 100;
+      background: url(./assets/background.png) no-repeat top center;
       .el-col {
         display: flex;
         .el-menu.el-menu--horizontal {
