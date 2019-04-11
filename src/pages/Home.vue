@@ -22,7 +22,7 @@
           </el-col>
           <el-col :span="12">
             年化通胀率 <span
-              class="big">{{miningStatus.inflationRatio.toFixed(2) || '?'}}</span> %
+              class="big">{{miningStatus.inflationRatio ?miningStatus.inflationRatio.toFixed(2):'?'}}</span> %
           </el-col>
         </el-row>
         <el-input v-model="input" placeholder="输入单元或地址查询" @keyup.enter.native="submit"/>
