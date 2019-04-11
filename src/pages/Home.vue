@@ -78,14 +78,18 @@
     name: 'Home',
     props: {},
     mounted() {
-      setInterval(() => {
+      this.getIndexInterval = setInterval(() => {
         this.$socket.emit('getIndex')
       }, 3000)
+    },
+    beforeDestroy() {
+      clearInterval(this.getIndexInterval)
     },
     data() {
       return {
         input: '',
-        unitsLoading: false
+        unitsLoading: false,
+        getIndexInterval: null
       }
     },
     methods: {
