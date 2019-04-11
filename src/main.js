@@ -35,6 +35,9 @@ Vue.use(Loading.directive);
 
 Vue.prototype.$loading = Loading.service;
 
+import './components'
+
+
 moment.locale('en', {
   longDateFormat: {
     L: "YYYY-MM-DD HH:mm:ss",
