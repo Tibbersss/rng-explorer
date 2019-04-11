@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/Home.vue'
+import Unit from './pages/Unit.vue'
 
 Vue.use(Router)
 
@@ -11,6 +12,10 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    }, {
+      path: '/unit/:unit',
+      name: 'unit',
+      component: Unit
     }
   ]
 })

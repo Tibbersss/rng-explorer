@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {Container, Header, Main, Menu, MenuItem, Submenu, Row, Col, Card, Table, Button, TableColumn, Tag, Icon, Loading, Input} from 'element-ui';
+import {Container, Header, Main, Menu, MenuItem, Submenu, Row, Col, Card, Table, Button, TableColumn, Tag, Icon, Loading, Input, Form, FormItem, Collapse, CollapseItem} from 'element-ui';
 import router from './router'
 import store from './store'//引入store
 import i18n from './i18n'
@@ -25,7 +25,11 @@ Vue.use(TableColumn)
 Vue.use(Button)
 Vue.use(Tag)
 Vue.use(Icon)
-Vue.use(Input);
+Vue.use(Input)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Collapse)
+Vue.use(CollapseItem)
 
 Vue.use(Loading.directive);
 
