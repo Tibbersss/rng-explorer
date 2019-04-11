@@ -9,23 +9,23 @@
         <div class="logo"></div>
         <el-row class="data">
           <el-col :span="12">
-            已挖出 <span class="big">{{getRng(miningStatus.totalMine)}}</span> RNG
+            {{ $t('areMined[0]') }}<span class="big">{{getRng(miningStatus.totalMine)}}</span> {{ $t('areMined[1]') }}
           </el-col>
           <el-col :span="12">
-            共发行 <span class="big">{{getRng(miningStatus.totalPublishCoin)}}</span> RNG
+            {{ $t('toBeMined[0]') }} <span class="big">{{getRng(miningStatus.totalPublishCoin)}}</span> {{ $t('toBeMined[1]') }}
           </el-col>
         </el-row>
 
         <el-row class="data">
           <el-col :span="12">
-            当前抵押率 <span class="big">{{miningStatus.depositRatio || '?'}}</span> %
+            {{ $t('depositRatio') }} <span class="big">{{miningStatus.depositRatio || '?'}}</span> %
           </el-col>
           <el-col :span="12">
-            年化通胀率 <span
+            {{ $t('inflationRatio') }} <span
               class="big">{{miningStatus.inflationRatio ?miningStatus.inflationRatio.toFixed(2):'?'}}</span> %
           </el-col>
         </el-row>
-        <el-input v-model="input" placeholder="输入单元或地址查询" @keyup.enter.native="submit"/>
+        <el-input v-model="input" :placeholder="$t('queryPlaceholder')" @keyup.enter.native="submit"/>
 
         <el-row style="margin-top: 28px">
           <el-card>
