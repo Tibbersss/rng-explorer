@@ -60,12 +60,12 @@ Vue.use(new VueSocketIO({
     actionPrefix: 'SOCKET_',
   }
 }))
-Vue.prototype.ioConnected = (cb, _vue) => {
-  if (_vue.$vueSocketIo.io.connected === true) {
+Vue.prototype.ioConnected = function (cb) {
+  if (this.$vueSocketIo.io.connected === true) {
     cb()
   } else {
     setTimeout(() => {
-      _vue.ioConnected(cb, _vue)
+      this.ioConnected(cb)
     }, 500)
   }
 }

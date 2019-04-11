@@ -64,7 +64,7 @@
         this.$socket.emit('getUnitInfo', {
           unit: this.$route.params.value
         })
-      }, this)
+      })
     },
     data() {
       return {
