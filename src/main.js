@@ -60,10 +60,19 @@ Vue.use(new VueSocketIO({
     actionPrefix: 'SOCKET_',
   }
 }))
+Vue.prototype.ioConnected = cb => {
+  if (vm.$vueSocketIo.io.connected === true) {
+    cb()
+  } else {
+    setTimeout(() => {
+      vm.ioConnected(cb)
+    }, 500)
+  }
+}
 
 Vue.config.productionTip = false
 
-new Vue({
+let vm = new Vue({
   router,
   store,
   i18n,
