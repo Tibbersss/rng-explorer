@@ -60,6 +60,11 @@
     name: 'Unit',
     props: {},
     mounted() {
+      this.ioConnected(() => {
+        this.$socket.emit('getUnitInfo', {
+          unit: this.$route.params.value
+        })
+      }, this)
     },
     data() {
       return {
