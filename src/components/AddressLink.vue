@@ -13,7 +13,7 @@
     methods: {
       getUrl() {
         return {
-          name: this.address.indexOf('=') > -1 ? 'unit' : 'address',
+          name: this.getAddressType(this.address),
           params: {
             value: this.address
           }

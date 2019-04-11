@@ -37,6 +37,10 @@ Vue.prototype.$loading = Loading.service;
 
 import './components'
 
+Vue.prototype.getAddressType = address => {
+  return address.indexOf('=') > -1 ? 'unit' : 'wallet'
+}
+
 
 moment.locale('en', {
   longDateFormat: {
