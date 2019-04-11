@@ -9,19 +9,20 @@
         <div class="logo"></div>
         <el-row class="data">
           <el-col :span="12">
-            已挖出 <span class="big">{{rng.mined}}</span> RNG
+            已挖出 <span class="big">{{getRng(miningStatus.totalMine)}}</span> RNG
           </el-col>
           <el-col :span="12">
-            共发行 <span class="big">{{rng.total}}</span> RNG
+            共发行 <span class="big">{{getRng(miningStatus.totalPublishCoin)}}</span> RNG
           </el-col>
         </el-row>
 
         <el-row class="data">
           <el-col :span="12">
-            当前抵押率 <span class="big">{{rng.mortgage}}</span> %
+            当前抵押率 <span class="big">{{miningStatus.depositRatio || '?'}}</span> %
           </el-col>
           <el-col :span="12">
-            年化通胀率 <span class="big">{{rng.inflation}}</span> %
+            年化通胀率 <span
+              class="big">{{miningStatus.inflationRatio.toFixed(2) || '?'}}</span> %
           </el-col>
         </el-row>
         <el-input v-model="input" placeholder="输入单元或地址查询" @keyup.enter.native="submit"/>
@@ -35,7 +36,7 @@
             <el-table
                 max-height="300"
                 width="100%"
-                :data="units"
+                :data="latestUnits"
                 style="width: 100%">
               <el-table-column
                   prop="unit"
@@ -73,42 +74,42 @@
   export default {
     name: 'Home',
     props: {},
-    mounted () {
+    mounted() {
       setInterval(() => {
-        this.$socket.emit('getLatestUnits')
+        this.$socket.emit('getIndex')
       }, 3000)
     },
-    data () {
+    data() {
       return {
         input: '',
-        unitsLoading: false,
-        rng: {
-          mined: 368541,
-          total: 5000003333,
-          mortgage: 24,
-          inflation: 17
-        }
+        unitsLoading: false
       }
     },
     methods: {
-      refreshUnitsIcon () {
+      getRng(rng) {
+        return parseInt(rng / 1000000) || '?'
+      },
+      refreshUnitsIcon() {
         this.unitsLoading = true
         setTimeout(() => {
           this.unitsLoading = false
         }, 2000)
       },
-      submit () {
+      submit() {
         this.$router.push('unit')
       }
     },
     computed: {
-      units () {
-        return this.$store.state.units
-      }
+      latestUnits() {
+        return this.$store.state.latestUnits
+      },
+      miningStatus() {
+        return this.$store.state.miningStatus
+      },
     },
     watch: {
       // 如果 `question` 发生改变，这个函数就会运行
-      units: function () {
+      latestUnits: function () {
         this.refreshUnitsIcon()
       }
     }
