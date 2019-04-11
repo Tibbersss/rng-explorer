@@ -41,6 +41,9 @@
               <el-table-column
                   prop="unit"
                   label="单元">
+                <template slot-scope="scope">
+                  <address-link :address="scope.row.unit"></address-link>
+                </template>
               </el-table-column>
               <el-table-column
                   label="日期">
