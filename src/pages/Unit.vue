@@ -181,14 +181,6 @@
 
     .el-collapse-item__content {
       padding-bottom: 4px;
-      .address-link {
-        display: inline;
-        padding: 0;
-        margin-left: 0;
-        word-break: break-all;
-        line-height: 14px;
-        height: 14px;
-      }
     }
     .el-collapse-item__header {
       height: 36px;

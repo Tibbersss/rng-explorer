@@ -1,5 +1,5 @@
 <template>
-  <el-card>
+  <el-card class="unit-messages-card">
     <el-collapse :value="[1]">
       <el-collapse-item title="Messages" :name="1">
         <el-collapse :value="[1,2,3,4,5,6]">
@@ -90,6 +90,16 @@
 </script>
 
 <style lang="less">
+  .unit-messages-card {
+    .address-link {
+      display: inline;
+      padding: 0;
+      margin-left: 0;
+      word-break: break-all;
+      line-height: 14px;
+      height: 14px;
+    }
+  }
   .payment-items {
     line-height: 16px;
     padding-top: 14px;
