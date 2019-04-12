@@ -28,5 +28,6 @@
     white-space: normal;
     font-weight: normal;
     text-decoration: none;
+    -webkit-user-select: all;
   }
 </style>
