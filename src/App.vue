@@ -24,7 +24,7 @@
             >
               <el-submenu index="3" style="float: right">
                 <template cla="abc" slot="title">{{languageMap[language]}}</template>
-                <el-menu-item v-for="(i, k) in languageMap" :index="k">{{i}}</el-menu-item>
+                <el-menu-item v-for="(i, k) in languageMap" :index="k" :key="k">{{i}}</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-col>
