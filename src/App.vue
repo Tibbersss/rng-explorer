@@ -5,7 +5,7 @@
         <el-row>
           <el-col :span="16" :offset="4">
             <el-menu
-                :default-active="activeIndex"
+                :default-active="path"
                 mode="horizontal"
                 background-color="transparent"
                 text-color="#fff"
@@ -15,8 +15,10 @@
             >
               <el-menu-item class="transparent_bg" index="/">{{ $t('index') }}</el-menu-item>
               <el-menu-item class="transparent_bg" index="/addressMap">{{ $t('addressMap') }}</el-menu-item>
+              <el-menu-item v-show="false" index="/unit"></el-menu-item>
+              <el-menu-item v-show="false" index="/wallet"></el-menu-item>
             </el-menu>
-            <query-input v-if="path !== '/'" class="queryInput" v-model="input"></query-input>
+            <query-input v-if="path !== '/home'" class="queryInput" v-model="input"></query-input>
             <el-menu
                 @select="changeLanguage"
                 class="submenu-language transparent_bg"
@@ -63,7 +65,7 @@
         return this.$i18n.locale
       },
       path() {
-        return this.$route.path
+        return '/' + this.$route.name
       }
     }
   }
