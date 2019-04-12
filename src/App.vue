@@ -11,9 +11,10 @@
                 text-color="#fff"
                 active-text-color="#fff"
                 style="width: 100%"
+                :router="true"
             >
-              <el-menu-item class="transparent_bg" index="1">{{ $t('index') }}</el-menu-item>
-              <el-menu-item class="transparent_bg" index="2">{{ $t('addressMap') }}</el-menu-item>
+              <el-menu-item class="transparent_bg" index="/">{{ $t('index') }}</el-menu-item>
+              <el-menu-item class="transparent_bg" index="/addressMap">{{ $t('addressMap') }}</el-menu-item>
             </el-menu>
 
             <el-menu
@@ -40,7 +41,7 @@
   export default {
     name: 'app',
     components: {},
-    data () {
+    data() {
       return {
         activeIndex: '1',
         languageMap: {
@@ -50,12 +51,12 @@
       }
     },
     methods: {
-      changeLanguage (key) {
+      changeLanguage(key) {
         this.$i18n.locale = key
       }
     },
     computed: {
-      language () {
+      language() {
         return this.$i18n.locale
       }
     }
