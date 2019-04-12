@@ -29,5 +29,6 @@
     font-weight: normal;
     text-decoration: none;
     -webkit-user-select: all;
+    margin-left: 0!important;
   }
 </style>
