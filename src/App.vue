@@ -16,7 +16,7 @@
               <el-menu-item class="transparent_bg" index="/">{{ $t('index') }}</el-menu-item>
               <el-menu-item class="transparent_bg" index="/addressMap">{{ $t('addressMap') }}</el-menu-item>
             </el-menu>
-
+            <query-input v-if="path !== '/'" class="queryInput" v-model="input"></query-input>
             <el-menu
                 @select="changeLanguage"
                 class="submenu-language transparent_bg"
@@ -38,11 +38,14 @@
 </template>
 
 <script>
+  import QueryInput from './components/QueryInput'
+
   export default {
     name: 'app',
-    components: {},
+    components: {QueryInput},
     data() {
       return {
+        input: '',
         activeIndex: '1',
         languageMap: {
           en: 'english',
@@ -58,6 +61,9 @@
     computed: {
       language() {
         return this.$i18n.locale
+      },
+      path() {
+        return this.$route.path
       }
     }
   }
@@ -91,6 +97,13 @@
             }
           }
         }
+      }
+    }
+    .queryInput {
+      margin-top: 14px;
+      input {
+        height: 32px;
+        line-height: 32px;
       }
     }
     /*.submenu-language {*/

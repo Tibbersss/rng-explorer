@@ -25,8 +25,7 @@
               class="big">{{miningStatus.inflationRatio ?miningStatus.inflationRatio.toFixed(2):'?'}}</span> %
           </el-col>
         </el-row>
-        <el-input v-model="input" :placeholder="$t('queryPlaceholder')" @keyup.enter.native="submit"/>
-
+        <query-input v-model="input"></query-input>
         <el-row style="margin-top: 28px">
           <el-card>
             <div slot="header">
@@ -74,9 +73,11 @@
 </template>
 
 <script>
+  import QueryInput from '../components/QueryInput'
   export default {
     name: 'Home',
     props: {},
+    components: {QueryInput},
     mounted() {
       this.ioConnected(() => {
         this.getIndexInterval = setInterval(() => {
