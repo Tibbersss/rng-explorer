@@ -25,6 +25,10 @@ const i18n = new VueI18n({
       unstable: '未稳定',
       failure: '失败',
       online_peers: '在线节点数',
+      round_index: '轮次',
+      pow_type: 'pow类型',
+      date: '日期',
+      unit: '单元',
     },
     en: {
       index: 'index',
@@ -45,6 +49,10 @@ const i18n = new VueI18n({
       unstable: 'unstable',
       failure: 'failure',
       online_peers: 'online peers',
+      round_index: 'round index',
+      pow_type: 'pow type',
+      date: 'date',
+      unit: 'unit',
     },
   },
 })
