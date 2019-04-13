@@ -12,7 +12,8 @@
             {{ $t('areMined[0]') }} <span class="big">{{getRng(miningStatus.totalMine)}}</span> {{ $t('areMined[1]') }}
           </el-col>
           <el-col :span="12">
-            {{ $t('toBeMined[0]') }} <span class="big">{{getRng(miningStatus.totalPublishCoin)}}</span> {{ $t('toBeMined[1]') }}
+            {{ $t('toBeMined[0]') }} <span class="big">{{getRng(miningStatus.totalPublishCoin)}}</span> {{
+            $t('toBeMined[1]') }}
           </el-col>
         </el-row>
 
@@ -26,6 +27,10 @@
           </el-col>
         </el-row>
         <query-input v-model="input"></query-input>
+
+        <mining-status>
+        </mining-status>
+
         <el-row style="margin-top: 28px">
           <el-card>
             <div slot="header">
@@ -74,10 +79,12 @@
 
 <script>
   import QueryInput from '../components/QueryInput'
+  import MiningStatus from '../components/MiningStatus'
+
   export default {
     name: 'Home',
     props: {},
-    components: {QueryInput},
+    components: {QueryInput, MiningStatus},
     mounted() {
       this.ioConnected(() => {
         this.getIndexInterval = setInterval(() => {
