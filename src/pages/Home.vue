@@ -28,8 +28,7 @@
         </el-row>
         <query-input v-model="input"></query-input>
 
-        <mining-status>
-        </mining-status>
+        <mining-status :mining-status="miningStatus"></mining-status>
 
         <el-row style="margin-top: 28px">
           <el-card>
