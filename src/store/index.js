@@ -4,15 +4,17 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
+    duration: 0,
     latestUnits: [],
     miningStatus: {
       inflationRatio: ''
-    }
+    },
   },
   mutations: {
     SET_INDEX (state, data) {
       state.latestUnits = data.latestUnits
       state.miningStatus = data.miningStatus
+      state.duration = data.duration
     }
   },
   actions: {
