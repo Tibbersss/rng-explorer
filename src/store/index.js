@@ -9,11 +9,15 @@ const store = new Vuex.Store({
       inflationRatio: ''
     }
   },
-  mutations: {},
-  actions: {
-    'SOCKET_UPDATE_INDEX'({state}, data) {
+  mutations: {
+    SET_INDEX (state, data) {
       state.latestUnits = data.latestUnits
       state.miningStatus = data.miningStatus
+    }
+  },
+  actions: {
+    'SOCKET_UPDATE_INDEX' ({commit}, data) {
+      commit('SET_INDEX', data)
     }
   }
 })
