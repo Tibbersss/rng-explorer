@@ -29,6 +29,7 @@ const i18n = new VueI18n({
       pow_type: 'pow类型',
       date: '日期',
       unit: '单元',
+      duration: '持续时间'
     },
     en: {
       index: 'index',
@@ -53,6 +54,7 @@ const i18n = new VueI18n({
       pow_type: 'pow type',
       date: 'date',
       unit: 'unit',
+      duration: 'duration'
     },
   },
 })
