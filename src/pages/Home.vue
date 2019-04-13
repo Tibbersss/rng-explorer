@@ -4,7 +4,7 @@
     </div>
 
     <el-row>
-      <el-col :span="18" :offset="3">
+      <el-col :span="18" :offset="3" :xs="xs" :sm="sm" :md="md">
 
         <div class="logo"></div>
         <el-row class="data">
@@ -98,7 +98,19 @@
       return {
         input: '',
         unitsLoading: false,
-        getIndexInterval: null
+        getIndexInterval: null,
+        xs: {
+          span: 24,
+          offset: 0
+        },
+        sm: {
+          span: 24,
+          offset: 0
+        },
+        md: {
+          span: 20,
+          offset: 2
+        }
       }
     },
     methods: {

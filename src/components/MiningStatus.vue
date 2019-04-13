@@ -1,7 +1,7 @@
 <template>
 
   <el-row class="mining-status">
-    <el-col :span="16" class="left">
+    <el-col :span="16" :xs="24" class="left">
       <el-card>
         <div slot="header">
           <el-row>
@@ -54,7 +54,7 @@
         </el-row>
       </el-card>
     </el-col>
-    <el-col :span="8" class="right">
+    <el-col :span="8"  :xs="24" class="right">
       <el-card>
         <div slot="header">
           <div>{{ $t('online_peers') }}：</div>
@@ -123,7 +123,9 @@
 
 <style lang="less">
   .mining-status {
-    margin-top: 20px;
+    .left,.right {
+      margin-top: 20px;
+    }
     .right {
       .el-card__body {
         box-sizing: content-box;
